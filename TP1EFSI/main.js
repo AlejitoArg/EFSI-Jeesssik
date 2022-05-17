@@ -36,16 +36,19 @@ let promedio=0;
 let notas = document.getElementById("formulario")
 
 function NM(){
-    for (let i = 0; i < notas.length-2; i++) {
-        if (notaMayor<notas[i].value) {
-            notaMayor=notas[i].value
-        }    
+    if(notas[0].value && notas[1].value && notas[2].value && notas[0].value<=10 && notas[0].value>=0 && notas[1].value<=10 && notas[1].value>=0 && notas[2].value<=10 && notas[2].value>=0){
+        for (let i = 0; i < notas.length-2; i++) {
+            if (notaMayor<notas[i].value) {
+                notaMayor=notas[i].value
+            }    
+        }
+        alert(notaMayor)
     }
-    alert(notaMayor)
 }
 function pr(){
-    
-    promedio = Number(notas[0].value) + Number(notas[1].value) + Number(notas[2].value)
-    promedio = promedio/3
-    alert(promedio)
+    if(notas[0].value && notas[1].value && notas[2].value && notas[0].value<=10 && notas[0].value>=0 && notas[1].value<=10 && notas[1].value>=0 && notas[2].value<=10 && notas[2].value>=0){
+        promedio = Number(notas[0].value) + Number(notas[1].value) + Number(notas[2].value)
+        promedio = promedio/3
+        alert(promedio)
+    }
 }
