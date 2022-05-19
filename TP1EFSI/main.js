@@ -31,24 +31,52 @@ Todos los resultados deberán mostrarse en el mismo div con los valores correspo
 corresponda.
 
 */
-let notaMayor = -1;
-let promedio=0;
 let notas = document.getElementById("formulario")
-
 function NM(){
+    let notaMayor = -1;
+    errorHTML=document.getElementById("error")
     if(notas[0].value && notas[1].value && notas[2].value && notas[0].value<=10 && notas[0].value>=0 && notas[1].value<=10 && notas[1].value>=0 && notas[2].value<=10 && notas[2].value>=0){
         for (let i = 0; i < notas.length-2; i++) {
-            if (notaMayor<notas[i].value) {
-                notaMayor=notas[i].value
-            }    
+            if (notaMayor<Number(notas[i].value)) {
+                notaMayor=Number(notas[i].value)
+                materiaMayorNota = notas[i].name
+            }else if(notaMayor==notas[i].value){
+                materiaMayorNota=materiaMayorNota + ", " + notas[i].name
+            }
         }
-        alert(notaMayor)
+        mayorNotaHTML=document.getElementById("mayorNota")
+        mayorNotaHTML.outerHTML = `<h5 id="mayorNota">La/s materia/s con la nota mayor es/son: <strong style="color: blue">${materiaMayorNota}</strong> con: ${notaMayor}</h5>`;
+        errorHTML.innerHTML=""
+    }else{
+        errorHTML.innerHTML="Ingrese numeros mayores o iguales a 0 y menores o iguales que 10"
     }
 }
 function pr(){
+    let promedio=0;
+    errorHTML=document.getElementById("error")
     if(notas[0].value && notas[1].value && notas[2].value && notas[0].value<=10 && notas[0].value>=0 && notas[1].value<=10 && notas[1].value>=0 && notas[2].value<=10 && notas[2].value>=0){
         promedio = Number(notas[0].value) + Number(notas[1].value) + Number(notas[2].value)
         promedio = promedio/3
-        alert(promedio)
+        promedioHTML=document.getElementById("promedio")
+
+        if(promedio < 6){
+            promedioHTML.innerHTML = `<h5 id="promedio">El promedio es : <strong style="color: #FF0000">${promedio}</strong></h5>`;
+
+        }else{
+            promedioHTML.innerHTML = `<h5 id="promedio">El promedio es : <strong style="color: #55FF00">${promedio}</strong></h5>`;
+        }
+        imagesHTML=document.getElementById("imagenes")
+        if(promedio<6){
+            imagesHTML.outerHTML='<img id="imagenes" src="Images/minionsReprobado.gif">'
+        }else if(promedio==6){
+            imagesHTML.outerHTML='<img id="imagenes" src="Images/minions6.gif">'
+        }else if(promedio==10){
+            imagesHTML.outerHTML='<img id="imagenes" src="Images/minionCumple.gif">'
+        }else{
+            imagesHTML.outerHTML='<img id="imagenes" src="Images/minionsFestejando.gif">'
+        }
+        errorHTML.innerHTML=""
+    }else{
+        errorHTML.innerHTML="Ingrese numeros mayores a 0 y menores que 10"
     }
 }

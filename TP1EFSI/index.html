@@ -20,7 +20,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Matematica</h5>
-                            <input type="number" name="matematica" min="0" max="10" required>
+                            <input type="number" name="Matematica" min="0" max="10" required>
                         </div>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Lengua</h5>
-                            <input type="number" name="lengua" min="0" max="10" required>
+                            <input type="number" name="Lengua" min="0" max="10" required>
                         </div>
                     </div>
                 </div>
@@ -36,16 +36,24 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">EFSI</h5>
-                            <input type="number" name="efsi" min="0" max="10" required>
+                            <input type="number" name="EFSI" min="0" max="10" required>
                         </div>
                     </div>
                 </div>
             </div>
             <br>
             <div class="btn-group" role="group" aria-label="Basic example">
-                <button onclick="pr()" class="btn btn-outline-primary">Promedio</button>
-                <button onclick="NM()" class="btn btn-outline-primary">Mayor nota</button>
+                <button type="button" onclick="pr()" class="btn btn-outline-primary">Promedio</button>
+                <button type="button" onclick="NM()" class="btn btn-outline-primary">Mayor nota</button>
             </div>
+            <div id="resultados">
+                <br>
+                <div id="error"></div>
+                <br><br>
+                <div id="promedio"></div>
+                <div id="mayorNota"></div>
+            </div>
+            <div id="imagenes"></div>
         </div>
     </form>
 
